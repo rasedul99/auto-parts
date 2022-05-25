@@ -3,36 +3,36 @@
     "_id": "1",
     "name": "CHILD'S SAFETY SEATS",
     "image": "sdhfjd.jpg",
-    "short description": "lorem bla bla",
-    "minOrder ": "20",
-    "available quantity": "520",
+    "desc": "lorem bla bla",
+    "minOrder": "20",
+    "aQty": "520",
     "price": "5214"
   },
   {
     "_id": "2",
     "name": "CHILD'S SAFETY SEATS",
     "image": "sdhfjd.jpg",
-    "short description": "lorem bla bla",
-    "minOrder ": "20",
-    "available quantity": "520",
+    "desc": "lorem bla bla",
+    "minOrder": "20",
+    "aQty": "520",
     "price": "5214"
   },
   {
     "_id": "3",
     "name": "CHILD'S SAFETY SEATS",
     "image": "sdhfjd.jpg",
-    "short description": "lorem bla bla",
-    "minOrder ": "20",
-    "available quantity": "520",
+    "desc": "lorem bla bla",
+    "minOrder": "20",
+    "aQty": "520",
     "price": "5214"
   },
   {
     "_id": "4",
     "name": "CHILD'S SAFETY SEATS",
     "image": "sdhfjd.jpg",
-    "short description": "lorem bla bla",
-    "minOrder ": "20",
-    "available quantity": "520",
+    "desc": "lorem bla bla",
+    "minOrder": "20",
+    "aQty": "520",
     "price": "5214"
   }
 ]
