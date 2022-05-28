@@ -10,10 +10,12 @@ const MyOrders = () => {
   const [orders, setOrders] = useFetchMyOrder(user);
   console.log(orders);
   const deleteHandler = (id) => {
+    console.log(id);
     const proceed = window.confirm("are you sure want to delete");
     console.log(proceed);
     if (proceed) {
       const url = `http://localhost:5000/orders/${id}`;
+      console.log(url);
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())
         .then((data) => {
@@ -40,7 +42,7 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => {
+            {orders?.map((order) => {
               return (
                 <tr>
                   <th>{order._id}</th>
@@ -49,9 +51,6 @@ const MyOrders = () => {
                   <td>${order.price}</td>
                   <td>
                     <input
-                      onClick={() => {
-                        deleteHandler(order._id);
-                      }}
                       type="button"
                       value="Payment"
                       className="btn btn-primary mx-1"

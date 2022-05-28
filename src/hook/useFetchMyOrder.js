@@ -11,7 +11,7 @@ const useFetchMyOrder = (user) => {
       .then((data) => {
         setOrders(data);
       });
-  }, []);
+  }, [email]);
   return [orders, setOrders];
 };
 

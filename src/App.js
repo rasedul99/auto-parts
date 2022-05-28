@@ -43,8 +43,8 @@ function App() {
         </Route>
         <Route path="/blog" element={<Blog />} />
         <Route path="/signin" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="portfolio" element={<MyPortfolio />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/portfolio" element={<MyPortfolio />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

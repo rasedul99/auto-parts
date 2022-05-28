@@ -20,7 +20,6 @@ const Purchase = () => {
   } = useForm();
   const handleOrder = (data) => {
     console.log(data);
-    const defaultMinItem = item.minOrder;
     const price = parseInt(data.number) * parseInt(item.price);
     console.log(price);
     const order = {
@@ -98,7 +97,8 @@ const Purchase = () => {
               max: `${item.quantity}`,
             })}
           />
-          {errors.number && `Min Order ${item.minOrder} Max order ${item.aQty}`}
+          {errors.number &&
+            `Min Order ${item.minOrder} Max order ${item.quantity}`}
           <input
             type="text"
             name="address"

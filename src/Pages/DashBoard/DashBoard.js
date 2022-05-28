@@ -13,15 +13,9 @@ const DashBoard = () => {
         {" "}
         <ul class="menu w-56 bg-primary text-secondary-content p-2 box">
           <li>
-            <Link to="/dashboard/my-orders">My Orders</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/add-review">Add Review</Link>
-          </li>
-          <li>
             <Link to="/dashboard/my-profile">My Profile</Link>
           </li>
-          {admin && (
+          {admin ? (
             <>
               <li>
                 <Link to="/dashboard/manage-orders">Manage All Orders</Link>
@@ -34,6 +28,15 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link to="/dashboard/manage-product">Manage Product</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/dashboard/my-orders">My Orders</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/add-review">Add Review</Link>
               </li>
             </>
           )}

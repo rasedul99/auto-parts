@@ -28,22 +28,17 @@ const MakeAdmin = () => {
   };
   return (
     <div>
-      <h2 className="text-2xl">All Users: {users.length}</h2>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => {
               return (
                 <tr>
-                  <th>1</th>
                   <td>{user.email}</td>
                   <td>
                     {user.role !== "admin" && (
