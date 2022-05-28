@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../firebase.init";
-
-const fakeItem = {
-  _id: "1",
-  name: "CHILD'S SAFETY SEATS",
-  image: "sdhfjd.jpg",
-  desc: "lorem bla bla",
-  minOrder: "20",
-  aQty: "520",
-  price: "5214",
-};
+import useFetchSingleItem from "../hook/useFetchSingleItem";
 
 const Purchase = () => {
-  const [item, setItem] = useState(fakeItem);
   const { id } = useParams();
+  console.log(id);
+  const [item, setItem] = useFetchSingleItem(id);
   const [user, loading, error] = useAuthState(auth);
   const {
     register,
@@ -25,36 +19,57 @@ const Purchase = () => {
     reset,
   } = useForm();
   const handleOrder = (data) => {
+    console.log(data);
+    const defaultMinItem = item.minOrder;
+    const price = parseInt(data.number) * parseInt(item.price);
+    console.log(price);
     const order = {
+      _id: id,
       name: user.displayName,
       email: user.email,
       quantity: data.number,
       phone: data.phone,
       address: data.address,
+      partsname: item.partsname,
+      price: price,
     };
-    reset();
     console.log(order);
+    fetch("http://localhost:5000/orderd", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          toast(`${data.message}`);
+          reset();
+        } else {
+          toast("failed to insert");
+          reset();
+        }
+      });
   };
 
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-2 gap-3 my-5">
       <div class="card w-full bg-base-100 shadow-xl">
         <figure>
-          <img
-            className="w-full"
-            src="https://api.lorem.space/image/shoes?w=400&h=225"
-            alt="Shoes"
-          />
+          <img className="w-full" src={item.image} alt="" />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">{item.name}</h2>
-          <p>{item.desc}</p>
+          <h2 class="card-title">{item.partsname}</h2>
+          <p>{item.description}</p>
           <p>Minimum Order :{item.minOrder}</p>
-          <p>Available Qty:{item.aQty}</p>
+          <p>Available Qty:{item.quantity}</p>
           <p>Price(per unit price):{item.price}</p>
         </div>
       </div>
       <div>
+        <ToastContainer />
         <form
           onSubmit={handleSubmit(handleOrder)}
           className="grid grid-cols-1 gap-3 justify-items-center mt-2"
@@ -80,7 +95,7 @@ const Purchase = () => {
             name="number"
             {...register("number", {
               min: `${item.minOrder}`,
-              max: `${item.aQty}`,
+              max: `${item.quantity}`,
             })}
           />
           {errors.number && `Min Order ${item.minOrder} Max order ${item.aQty}`}

@@ -1,10 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Blog from "./Pages/Blog";
-import AddReview from './Pages/DashBoard/AddReview';
+import AddProduct from "./Pages/DashBoard/AddProduct";
+import AddReview from "./Pages/DashBoard/AddReview";
 import DashBoard from "./Pages/DashBoard/DashBoard";
-import MyOrders from './Pages/DashBoard/MyOrders';
-import MyProfile from './Pages/DashBoard/MyProfile';
+import MakeAdmin from "./Pages/DashBoard/MakeAdmin";
+import ManageOrders from "./Pages/DashBoard/ManageOrders";
+import ManageProduct from "./Pages/DashBoard/ManageProduct";
+import MyOrders from "./Pages/DashBoard/MyOrders";
+import MyProfile from "./Pages/DashBoard/MyProfile";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import RequireAuth from "./Pages/Login/RequireAuth";
@@ -29,9 +33,13 @@ function App() {
           }
         />
         <Route path="/dashboard" element={<DashBoard />}>
-           <Route path='my-orders' element={<MyOrders />}/>
-           <Route path='add-review' element={<AddReview/>}/>
-           <Route path='my-profile' element={<MyProfile/>}/>
+          <Route path="my-orders" element={<MyOrders />} />
+          <Route path="my-profile" element={<MyProfile />} />
+          <Route path="add-review" element={<AddReview />} />
+          <Route path="manage-orders" element={<ManageOrders />} />
+          <Route path="manage-product" element={<ManageProduct />} />
+          <Route path="make-admin" element={<MakeAdmin />} />
+          <Route path="add-product" element={<AddProduct />} />
         </Route>
         <Route path="/blog" element={<Blog />} />
         <Route path="/signin" element={<Login />} />
