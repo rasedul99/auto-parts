@@ -5,14 +5,15 @@ const MyPortfolio = () => {
     <div>
       <div>
         <div className="my-3 flex justify-between">
-          <h3>Name :MD Rasedul Islam</h3>
-          <h3>Email:mdrased1015@gmail.com</h3>
+          <h3>Name : MD Rasedul Islam</h3>
+          <h3>Email: mdrased1015@gmail.com</h3>
         </div>
         <div>
           <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">Skills</h2>
           <ul class="mt-2 mb-10">
             <li class="px-2 mt-1">HTML</li>
             <li class="px-2 mt-1">CSS</li>
+            <li class="px-2 mt-1">Bootstrap</li>
             <li class="px-2 mt-1">Tailwind CSS</li>
             <li class="px-2 mt-1">JavaScript</li>
             <li class="px-2 mt-1">React</li>
