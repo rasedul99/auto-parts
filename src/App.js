@@ -11,6 +11,7 @@ import MyOrders from "./Pages/DashBoard/MyOrders";
 import MyProfile from "./Pages/DashBoard/MyProfile";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import RequireAdmin from "./Pages/Login/RequireAdmin";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import MyPortfolio from "./Pages/MyPortfolio";
 import NotFound from "./Pages/NotFound";
@@ -36,10 +37,38 @@ function App() {
           <Route path="my-orders" element={<MyOrders />} />
           <Route path="my-profile" element={<MyProfile />} />
           <Route path="add-review" element={<AddReview />} />
-          <Route path="manage-orders" element={<ManageOrders />} />
-          <Route path="manage-product" element={<ManageProduct />} />
-          <Route path="make-admin" element={<MakeAdmin />} />
-          <Route path="add-product" element={<AddProduct />} />
+          <Route
+            path="manage-orders"
+            element={
+              <RequireAdmin>
+                <ManageOrders />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="manage-product"
+            element={
+              <RequireAdmin>
+                <ManageProduct />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="make-admin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="add-product"
+            element={
+              <RequireAdmin>
+                <AddProduct />
+              </RequireAdmin>
+            }
+          />
         </Route>
         <Route path="/blog" element={<Blog />} />
         <Route path="/signin" element={<Login />} />
