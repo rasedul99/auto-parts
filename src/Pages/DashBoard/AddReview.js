@@ -27,7 +27,7 @@ const AddReview = () => {
       image: image,
     };
     console.log(review);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://radiant-fjord-31208.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

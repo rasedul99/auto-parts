@@ -14,7 +14,7 @@ const AddProduct = () => {
     const data = { ...result, email: user.email };
     console.log(data);
 
-    fetch("http://localhost:5000/carparts", {
+    fetch("https://radiant-fjord-31208.herokuapp.com/carparts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

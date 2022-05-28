@@ -8,7 +8,7 @@ import useFetchProfile from "../../hook/useFetchProfile";
 const MyProfile = () => {
   const [user, loading, error] = useAuthState(auth);
   const [showModal, setShowModal] = useState(false);
-  const [profile, setProfile] = useFetchProfile(user,showModal);
+  const [profile, setProfile] = useFetchProfile(user, showModal);
   const { register, handleSubmit, reset } = useForm();
   const email = user?.email;
   const handleUpdate = (data) => {
@@ -21,7 +21,7 @@ const MyProfile = () => {
       phoneNumber: data.phone,
     };
 
-    fetch(`http://localhost:5000/user/profile/${email}`, {
+    fetch(`https://radiant-fjord-31208.herokuapp.com/user/profile/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

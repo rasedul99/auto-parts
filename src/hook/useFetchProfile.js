@@ -5,7 +5,7 @@ const useFetchProfile = (user, showModal) => {
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/profile/${email}`)
+    fetch(`https://radiant-fjord-31208.herokuapp.com/user/profile/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);

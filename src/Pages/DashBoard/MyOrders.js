@@ -14,7 +14,7 @@ const MyOrders = () => {
     const proceed = window.confirm("are you sure want to delete");
     console.log(proceed);
     if (proceed) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://radiant-fjord-31208.herokuapp.com/orders/${id}`;
       console.log(url);
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())

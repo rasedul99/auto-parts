@@ -33,7 +33,7 @@ const Purchase = () => {
       price: price,
     };
     console.log(order);
-    fetch("http://localhost:5000/orderd", {
+    fetch("https://radiant-fjord-31208.herokuapp.com/orderd", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -9,16 +9,21 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/user").then((res) => res.json())
+    fetch("https://radiant-fjord-31208.herokuapp.com/user").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   const createAdmin = (user) => {
-    fetch(`http://localhost:5000/user/admin/${user.email}`, {
-      method: "PUT",
-    })
+    fetch(
+      `https://radiant-fjord-31208.herokuapp.com/user/admin/${user.email}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
